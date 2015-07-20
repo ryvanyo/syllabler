@@ -12,8 +12,8 @@ In the TODO
 
 
 # Known Issues
-El soporte para palabras con guiones, que debe ser añadido externamente a la clase no está añadido.
+The support for hypen words must be added externally and process separately, it is not added.
 
-Los prefijos pueden dar lugar a errores por el momento.
+The prefixes can make issues by the moment.
 
-Aunque el algoritmo si lo soporta no está implementado el soporte para "tl" u otras configuraciones. Solo funciona en modalidad "Castellano" (Español de España y con los errores mencionados en la parte superior.
+In spite of the algorithm supports it, it is not implemented the support for "tl" or other configurations that are not from Spain. It is only works with "Castillian" (spanish from Spain with the known mistakes).
