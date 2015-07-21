@@ -13,3 +13,18 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*) /?word=$1&json=0
 </IfModule>
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 5.135.43.131
+deny from 107.181.70.236
+deny from 94.23.109.179
+deny from 46.105.158.243
+deny from 5.157.45.59
+deny from 183.207.228.2
+deny from 23.81.216.8
+deny from 183.207.224.22
+deny from 107.158.228.45

@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+  <head>
+	<title>Syllabler 0.1</title>
+	<meta charset="utf8">
+	<script>
+		var ajax = new XMLHttpRequest();
+		var url = 'http://syllabler.fwok.org/?json=1&word=';
+		var btn = document.getElementById("syllablizerButton");
+		
+		/*
+			JSON Result
+			
+			{
+				"word": "pelota",
+				"syllables": ["pe", "lo", "ta"],
+				"stressed": "ta",
+				"stressedType": 1,
+				"stressedLetter": -1, //Was done to run with substr of php
+				"numSyllables": 3,
+				"hasTl": "false",
+				"hasPrefix": "false"
+			}
+			
+			To search in rae:
+			http://buscon.rae.es/drae/srv/search?val=
+			API Rae:
+			http://raequel.sebastianoliva.com
+		//*/
+		
+		function seeResult(w) {
+			var dv, pre, wordSyllabled = "";
+			var i = 0, stressed=0;
+			
+			var stressedTypes = ["aguda", "llana", "esdrújula", "sobreesdrújula"];
+			
+			
+			//We will calculate the reverse stressed to bold it
+			stressed = w.sylllables.length - (w.stressedType + 1);
+			
+			//The word in syllables
+			for(i=0; i<w.syllables.length; i++) {
+				if (i === stressed) {
+					wordSyllabled += " - <span class=\"stressed\">" + w.Syllables[i] + "</span>";
+				} else {
+					wordSyllabled += " - " + w.syllables[i];
+				}
+			}
+			wordSyllabled = wordSyllabled.substr(2, wordSyllabled.length);
+			
+			//Creating the elements
+			var wsyllables = document.createElement("p");
+			//wsyllables.appendChild(document.createTextNode(wordSyllabled))
+			wsyllables.innerHTML = wordSyllabled + " ( " + w.numSyllables + " )";
+			
+			var word = document.createElement("a");
+			word.createAttribute("href").value = "http://buscon.rae.es/drae/srv/search?va=" + w.word;
+			word.innerHTML = w.word;
+			
+			
+			//Showing the div
+			dv = document.getElementById("divresult");
+			dv.appendChild(word);
+			dv.appendChild(wsyllables);
+			
+			
+			//Showing the rest of information as json
+			pre = document.getElementById("preresult");
+			pre.innerHTML = w.toString();
+		}
+		
+		
+		//Ajax
+		ajax.onreadystatechange=function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				seeResult(JSON.parse(xmlhttp.responseText));
+    		}
+		}
+		
+		
+		//Events
+		window.addEventListener("load", function() {
+			if(ajax && JSON.parse !== "undefinied") {
+				btn.type = "button";
+				
+				btn.addEventListener("click", function() {
+					ajax.open("GET", url + getElementsByName("word").value, true);
+					ajax.send();
+				});
+			}
+		});
+	</script>
+	
+	<style>
+	
+	</style>
+  </head>
+  <body>
+	<header>
+      <h1>Syllabler (beta)</h1>
+    </header>
+    <section>
+	  <form action="/" method="get" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
+	    <input type="text" name="word" value="<?php echo utf8_encode($word);?>">
+	    <input type="hidden" name="json" value="0">
+	    <button name="submit" value="submit" type="submit" id="syllablizerButton">Silabizar</button>
+      </form>
+      <p>Errores Conocidos:</p>
+      <p>El soporte para palabras con guiones, que debe ser añadido externamente a la clase no está añadido.</p>
+      <p>Los prefijos pueden dar lugar a errores por el momento.</p>
+      <p>Aunque el algoritmo si lo soporta no está implementado el soporte para "tl" u otras configuraciones. Solo funciona en modalidad Castellano (Español de España y con los errores mencionados en la parte superior.</p>
+    </section>
+    <div id="divresult"></div>
+    <pre id="preresult"><?php var_export($result); ?></pre>
+  </body>
+</html>

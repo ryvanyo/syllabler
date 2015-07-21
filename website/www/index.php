@@ -26,13 +26,14 @@ if(isset($_GET['word'])) {
     $w = new Fwok_Word_Syllabler_Spanish($word);
 
     $result = array(
-	    'syllables' => $w->getSyllables(),
-	    'stressed' => $w->getStressedSyllable(),
-	    'stressedType' => $w->getStressedType(),
-	    'stressedLetter' => $w->getStressedLetter(),
-	    'numSyllables' => $w->getNumberOfSyllables(),
-	    'tl' => ((bool)$w->hasTl()?'true':'false'),
-	    'hasPrefix' => ((bool)$w->hasPrefix()?'true':'false')
+	    'word'            => utf8_encode($word),
+	    'syllables'       => $w->getSyllables(),
+	    'stressed'        => $w->getStressedSyllable(),
+	    'stressedType'    => $w->getStressedType(),
+	    'stressedLetter'  => $w->getStressedLetter(),
+	    'numSyllables'    => $w->getNumberOfSyllables(),
+	    'hasTl'              => ((bool)$w->hasTl()?'true':'false'),
+	    'hasPrefix'       => ((bool)$w->hasPrefix()?'true':'false')
     );
 }
 
