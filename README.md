@@ -17,3 +17,5 @@ The support for hypen words must be added externally and process separately, it 
 The prefixes can make issues by the moment.
 
 In spite of the algorithm supports it, it is not implemented the support for "tl" or other configurations that are not from Spain. It is only works with "Castillian" (spanish from Spain with the known mistakes).
+
+You must use utf8_decode before pass the word to the object, this is because the library convert the word to utf8 and recodification to utf8 must give problems.

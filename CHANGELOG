@@ -2,3 +2,6 @@
  * First version avaible
 15-07-2015
  + First Time in GitHub
+21-07-2015
+ + Added json option to the website (http://syllabler.fwok.org/json/camión)
+ - Removed some old code that isn't necessary.

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+	<title>Syllabler 0.1</title>
+	<meta charset="utf8">
+	<script>
+		var ajax = new XMLHttpRequest();
+		
+	</script>
+  </head>
+  <body>
+	<header>
+      <h1>Syllabler (beta)</h1>
+    </header>
+    <section>
+	  <form action="/" method="get" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
+	    <input type="text" name="word" value="<?php echo utf8_encode($word);?>">
+	    <input type="hidden" name="json" value="0">
+	    <button name="submit" value="submit" type="submit">Silabizar</button>
+      </form>
+      <p>Errores Conocidos:</p>
+      <p>El soporte para palabras con guiones, que debe ser añadido externamente a la clase no está añadido.</p>
+      <p>Los prefijos pueden dar lugar a errores por el momento.</p>
+      <p>Aunque el algoritmo si lo soporta no está implementado el soporte para "tl" u otras configuraciones. Solo funciona en modalidad Castellano (Español de España y con los errores mencionados en la parte superior.</p>
+    </section>
+    <section>
+	    <pre id="result"><?php var_export($result); ?></pre>
+    </section>
+  </body>
+</html>
