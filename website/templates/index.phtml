@@ -8,7 +8,7 @@
 		var url = 'http://syllabler.fwok.org/?json=1&word=';
 		
 		/*
-			JSON Result
+			JSON Result sample
 			
 			{
 				"word": "pelota",
@@ -23,11 +23,8 @@
 			
 			To search in rae:
 			http://buscon.rae.es/drae/srv/search?val=
-			API Rae:
-			http://raequel.sebastianoliva.com
-			{"word":"conductor","syllables":["con","duc","tor"],"stressed":"tor","stressedType":1,"stressedLetter":-1,"numSyllables":3,"hasTl":"false","hasPrefix":"false"}
 		//*/
-		
+				
 		function seeResult(response) {
 			var dv, pre, wordSyllabled = "";
 			var i = 0, stressed = 0;
@@ -150,7 +147,7 @@
       <p>Aunque el algoritmo si lo soporta no está implementado el soporte para "tl" u otras configuraciones. Solo funciona en modalidad Castellano (Español de España y con los errores mencionados en la parte superior.</p>
     </section>
     <div id="divresult"></div>
-    <pre id="preresult"><?php var_export($result); ?></pre>
+    <pre id="preresult"><?php if($result) { var_export($result); } ?></pre>
     <footer>
 	    <summary>Por <a href="http://gabi.com.es">Gabriel Trabanco Llano</a> (Contactar via red sociales | Contact through social networks)
 	    	<details><a href="http://twitter.com/gabrieltrabanco">Twitter</a> | <a href="https://es.linkedin.com/in/gabrieltrabanco">LinkeDin</a></details>
