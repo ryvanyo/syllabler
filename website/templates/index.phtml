@@ -103,7 +103,10 @@
 					
 					return false;
 				});
-			}
+			} else  {
+				alert("This app would NOT run in your navigator.\n\
+					It is needed a XMLHttpRequest Javascript Object (Chrome, Firefox, \
+					Safari...).");
 		});
 	</script>
 	
@@ -132,6 +135,10 @@
 	</style>
   </head>
   <body>
+  <noscript>
+    <p><span style="color:red;font-size: 1.4em;">Your navigator does NOT support JavaScript</span><br />
+    You should use Chrome, Firefox or latest IE for example.</p>
+  </noscript>
 	<header>
       <h1>Syllabler (beta)</h1>
     </header>
