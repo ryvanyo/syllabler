@@ -1,169 +1,48 @@
 <!doctype html>
 <html lang="es-ES">
-  <head>
-	<title>Syllabler</title>
-	<meta charset="utf8">
-	<script>
-		var ajax = new XMLHttpRequest();
-		var url = 'http://syllabler.fwok.org/?json=1&word=';
-		
-		/*
-			JSON Result sample
-			
-			{
-				"word": "pelota",
-				"syllables": ["pe", "lo", "ta"],
-				"stressed": "ta",
-				"stressedType": 1,
-				"stressedLetter": -1, //Was done to run with substr of php
-				"numSyllables": 3,
-				"hasTl": "false",
-				"hasPrefix": "false"
-			}
-			
-			To search in rae:
-			http://buscon.rae.es/drae/srv/search?val=
-		//*/
-				
-		function seeResult(response) {
-			var dv, pre, wordSyllabled = "";
-			var i = 0, stressed = 0;
-			var w = JSON.parse(response)
-			
-			var stressedTypes = ["aguda", "llana", "esdrújula", "sobreesdrújula"];
-			
-			//*/
-			//We will calculate the reverse stressed to bold it
-			stressed = w.syllables.length - (w.stressedType + 1);
-			
-			//The word in syllables
-			for(i=0; i<w.syllables.length; i++) {
-				if (i === stressed) {
-					wordSyllabled += " - <span class=\"stressed\">" + w.syllables[i] + "</span>";
-				} else {
-					wordSyllabled += " - " + w.syllables[i];
-				}
-			}
-			wordSyllabled = wordSyllabled.substr(2, wordSyllabled.length);
-			
-			//Creating the elements
-			var wsyllables = document.createElement("p");
-			//wsyllables.appendChild(document.createTextNode(wordSyllabled))
-			wsyllables.innerHTML = wordSyllabled + " ( " + w.numSyllables + " )";
-			
-			var aword = document.createElement("a");
-			aword.href = "http://buscon.rae.es/drae/srv/search?val=" + w.word;
-			aword.innerHTML = w.word;
-			//Or
-			//var linkText = document.createTextNode(w.word)
-			//aword.appendChild(linkText)
-			
-			
-			//Showing the div
-			dv = document.getElementById("divresult");
-			dv.appendChild(aword);
-			dv.appendChild(wsyllables);
-			
-			//*/
-			//Showing the rest of information as json
-			pre = document.getElementById("preresult");
-			pre.innerHTML = response;
-		}
-		
-		
-		
-		
-		//Events
-		window.addEventListener("load", function() {
-			if(ajax && JSON.parse !== "undefinied") {
-				var sylForm = document.getElementById("sylForm");
-				var btn = document.getElementById("sylButton");
-				
-				//First of all cancelling the submission of the form
-				sylForm.addEventListener("submit", function(f) { 
-					f.preventDefault();
-					return false;
-				}, false);
-				
-				//Ajax
-				ajax.onreadystatechange=function() {
-					if (ajax.readyState == 4 && ajax.status == 200) {
-						seeResult(ajax.responseText);
-		    		}
-				}
-				
-				//Onclick
-				btn.addEventListener("click", function() {
-					var word = document.getElementById("word").value;
-					
-					if(word.length > 2) {
-						ajax.open("GET", url + word, true);
-						ajax.send();
-					}
-					
-					return false;
-				});
-			} else  {
-				alert("This app would NOT run in your navigator.\n\
-					It is needed a XMLHttpRequest Javascript Object (Chrome, Firefox, \
-					Safari...).");
-		});
-	</script>
-	
-	<style>
-		#divresult a, a:focus {
-			color: #00a3ff;
-			font-weight: 600;
-			font-size: 1em;
-		}
-		
-		#divresult a:visited {
-			color: #0085ff;
-		}
-		
-		#divresult p {
-			color: #636363;
-			font-weight: 600;
-			font-size: 1.2em;
-		}
-		
-		#divresult p .stressed {
-			font-weight: bolder;
-			color: black;
-			font-size: 1.3em;
-		}
-	</style>
-  </head>
-  <body>
-  <noscript>
-    <p><span style="color:red;font-size: 1.4em;">Your navigator does NOT support JavaScript</span><br />
-    You should use Chrome, Firefox or latest IE for example.</p>
-  </noscript>
-	<header>
-      <h1>Syllabler (beta)</h1>
-    </header>
-    <section>
-	  <form action="/" method="get" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" id="sylForm">
-	    <input type="text" id="word" name="word" value="<?php echo utf8_encode($word);?>">
-	    <input type="hidden" name="json" value="0">
-	    <button name="submit" value="submit" type="submit" id="sylButton">Silabizar</button>
-      </form>
-      <p>Errores Conocidos:</p>
-      <p>El soporte para palabras con guiones, que debe ser añadido externamente a la clase no está añadido.</p>
-      <p>Los prefijos pueden dar lugar a errores por el momento.</p>
-      <p>Aunque el algoritmo si lo soporta no está implementado el soporte para "tl" u otras configuraciones. Solo funciona en modalidad Castellano (Español de España y con los errores mencionados en la parte superior.</p>
-    </section>
-    <div id="divresult"></div>
-    <pre id="preresult"><?php if($result) { var_export($result); } ?></pre>
-    <footer>
-	    <summary>Por <a href="http://gabi.com.es">Gabriel Trabanco Llano</a> (Contactar via red sociales | Contact through social networks)
-	    	<details><a href="http://twitter.com/gabrieltrabanco">Twitter</a> | <a href="https://es.linkedin.com/in/gabrieltrabanco">LinkeDin</a></details>
-	    </summary>
-	    <a href="https://github.com/gtrabanco/Syllabler" title="Project in GitHub" target="_blank">
-		  <figure>
-		    <img src="imgs/github.png" alt="GitHub Logo">
-		    <figcaption>Fork in GitHub</figcaption>
-		  </figure>
-		</a>
-  </body>
+<head>
+    <title>Syllabler</title>
+    <meta charset="utf8">
+    <script href="js/jslogic.js" async></script>
+    <link href="styles/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<noscript>
+    <div class="noscript">
+        <p>With a navigator that supports javascript you will have a better user experience.</p>
+        <p>Consider update your browser or machine if it is not compatible with latests browsers... 21st Century...</p>
+    </div>
+</noscript>
+<header>
+    <h1>Syllabler (beta)</h1>
+</header>
+
+<section>
+    <form action="/" method="get" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" id="sylForm">
+        <input type="text" id="word" name="word" value="<?php echo utf8_encode($word);?>">
+        <input type="hidden" name="json" value="0">
+        <button name="submit" value="submit" type="submit" id="sylButton">Silabizar</button>
+    </form>
+    <p>Errores Conocidos:</p>
+    <p>El soporte para palabras con guiones, que debe ser añadido externamente a la clase no está añadido.</p>
+    <p>Los prefijos pueden dar lugar a errores por el momento.</p>
+    <p>Aunque el algoritmo si lo soporta no está implementado el soporte para "tl" u otras configuraciones. Solo funciona en modalidad Castellano (Español de España y con los errores mencionados en la parte superior.</p>
+</section>
+
+<div id="divresult"></div>
+<pre id="preresult"><?php if($result) { var_export($result); } ?></pre>
+
+<footer>
+    <summary>Por <a href="http://gabi.com.es">Gabriel Trabanco Llano</a> (Contactar via red sociales | Contact through social networks)
+        <details><a href="http://twitter.com/gabrieltrabanco">Twitter</a> | <a href="https://es.linkedin.com/in/gabrieltrabanco">LinkeDin</a></details>
+    </summary>
+    <a href="https://github.com/gtrabanco/Syllabler" title="Project in GitHub" target="_blank">
+        <figure>
+            <img src="imgs/github.png" alt="GitHub Logo">
+            <figcaption>Fork in GitHub</figcaption>
+        </figure>
+    </a>
+</footer>
+
+</body>
 </html>

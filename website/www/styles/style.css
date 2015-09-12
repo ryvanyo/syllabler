@@ -1,0 +1,21 @@
+#divresult a, a:focus {
+    color: #00a3ff;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+#divresult a:visited {
+    color: #0085ff;
+}
+
+#divresult p {
+    color: #636363;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+#divresult p .stressed {
+    font-weight: bolder;
+    color: black;
+    font-size: 1.3em;
+}
