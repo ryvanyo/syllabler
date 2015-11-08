@@ -1,3 +1,122 @@
+/*
+SASS
+$color: #333;
+$font: sans-serif;
+$size: 11pt;
+$ratioH1: 1.8;
+$ratioFooter: 0.75;
+$ratioInput: 1.15;
+
+@mixin fontDef($color, $size, $font) {
+  font: $font normal;
+  color: $color;
+  font-size: $size;
+}
+
+@mixin stdBox($withColor, $size, $rate) {
+  width: ($size*100pt);
+  height:($size*100pt*$rate);
+  background: $withColor;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+* { margin:0; padding:0; }
+
+body {
+  @include fontDef($color, $size, $font);
+}
+
+input {
+  @include border-radius(10pt);
+  border: 2pt solid royalblue;
+  width: 150pt;
+  height: 30pt;
+  font: $font bold;
+  font-size: $size*$ratioInput;
+  color: grey;
+}
+
+button {
+  width: 90pt;
+  height: 30pt;
+  @include border-radius(10pt);
+  background: cornflowerblue;
+  border: 0;
+  font: bold;
+  font-size: $size*$ratioInput;
+  color: #333;
+}
+
+header, section, footer, div, form {
+  margin: 0 10pt 30pt
+}
+
+section p {
+  margin: 0 0 0 30pt;
+}
+
+footer {
+  @include fontDef(royalblue, $size * $ratioFooter, $font);
+}
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: sans-serif normal;
+  color: #333;
+  font-size: 11pt;
+}
+
+input {
+  -webkit-border-radius: 10pt;
+  -moz-border-radius: 10pt;
+  -ms-border-radius: 10pt;
+  border-radius: 10pt;
+  border: 2pt solid royalblue;
+  width: 150pt;
+  height: 30pt;
+  font: sans-serif bold;
+  font-size: 12.65pt;
+  color: grey;
+}
+
+button {
+  width: 90pt;
+  height: 30pt;
+  -webkit-border-radius: 10pt;
+  -moz-border-radius: 10pt;
+  -ms-border-radius: 10pt;
+  border-radius: 10pt;
+  background: cornflowerblue;
+  border: 0;
+  font: bold;
+  font-size: 12.65pt;
+  color: #333;
+}
+
+header, section, footer, div, form {
+  margin: 0 10pt 30pt;
+}
+
+section p {
+  margin: 0 0 0 30pt;
+}
+
+footer {
+  font: sans-serif normal;
+  color: royalblue;
+  font-size: 8.25pt;
+}
 #divresult a, a:focus {
     color: #00a3ff;
     font-weight: 600;
