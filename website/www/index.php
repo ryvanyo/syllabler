@@ -2,7 +2,7 @@
 error_reporting(0);
 
 set_include_path(get_include_path() . PATH_SEPARATOR
-	. '/home2/lecwgbor/library' . PATH_SEPARATOR
+	. '/library' . PATH_SEPARATOR
 	. '../templates/'
 );
 
@@ -27,6 +27,7 @@ if(isset($_GET['word'])) {
 
     $result = array(
 	    'word'            => utf8_encode($word),
+	    'raeUrl'      => 'http://dle.rae.es/' . urlencode($word),
 	    'syllables'       => $w->getSyllables(),
 	    'stressed'        => $w->getStressedSyllable(),
 	    'stressedType'    => $w->getStressedType(),

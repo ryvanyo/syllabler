@@ -59,7 +59,7 @@ function showResult(response) {
 
     //The link for the RAE dictionary
     var aword = document.createElement("a");
-    aword.href = "http://buscon.rae.es/drae/srv/search?val=" + w.word;
+    aword.href = w.raeUrl;
     aword.innerHTML = w.word;
     //Or
     //var linkText = document.createTextNode(w.word);
