@@ -27,7 +27,7 @@ if(isset($_GET['word'])) {
 
     $result = array(
 	    'word'            => utf8_encode($word),
-	    'raeUrl'      => 'http://dle.rae.es/' . urlencode($word),
+	    'raeUrl'      => 'http://dle.rae.es/' . urlencode($word), //More info http://dle.rae.es/
 	    'syllables'       => $w->getSyllables(),
 	    'stressed'        => $w->getStressedSyllable(),
 	    'stressedType'    => $w->getStressedType(),
