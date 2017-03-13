@@ -18,7 +18,7 @@
 </header>
 
 <section>
-    <form action="/" method="get" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" id="sylForm">
+    <form action="/" method="get" enctype="text/plain" accept-charset="UTF-8" id="sylForm">
         <input type="text" id="word" name="word" value="<?php echo utf8_encode($word);?>">
         <input type="hidden" name="json" value="0">
         <button name="submit" value="submit" type="submit" id="sylButton">Silabizar</button>
@@ -33,10 +33,10 @@
 <pre id="preresult"><?php if($result) { var_export($result); } ?></pre>
 
 <footer>
-    <summary>Por <a href="http://gabi.com.es">Gabriel Trabanco Llano</a> (Contactar via red sociales | Contact through social networks)
+    <summary>Por <a href="http://gabi.io">Gabriel Trabanco Llano</a> (Contactar via red sociales | Contact through social networks)
         <details><a href="http://twitter.com/gabrieltrabanco">Twitter</a> | <a href="https://es.linkedin.com/in/gabrieltrabanco">LinkeDin</a></details>
     </summary>
-    <a href="https://github.com/gtrabanco/Syllabler" title="Project in GitHub" target="_blank">
+    <a href="https://github.com/gtrabanco/PHP-Syllabler" title="Project in GitHub" target="_blank">
         <figure>
             <img src="imgs/github.png" alt="GitHub Logo">
             <figcaption>Fork in GitHub</figcaption>
