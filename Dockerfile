@@ -24,9 +24,9 @@ VOLUME /var/www/html
 WORKDIR /var/www/html
 
 COPY website/www .
+COPY apache.htaccess .htaccess
 COPY website/templates ../templates
 COPY library ../library
-RUN rm nginx.htaccess && mv apache.htaccess .htaccess
 
 EXPOSE 80
 
