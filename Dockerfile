@@ -1,7 +1,7 @@
 FROM php:5.6-apache
 MAINTAINER Gabriel Trabanco Llano <gtrabanco@fwok.org>
 
-ENV SYLLABLER_VERSION 0.1.0-beta.4
+ENV SYLLABLER_VERSION 0.1.0
 
 
 # set recommended PHP.ini settings
