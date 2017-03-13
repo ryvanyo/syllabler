@@ -3,7 +3,8 @@ error_reporting(0);
 
 set_include_path(get_include_path() . PATH_SEPARATOR
 	. '/library' . PATH_SEPARATOR
-	. '../templates/'
+	. '../templates/' . PATH_SEPARATOR
+	. '../library'
 );
 
 require_once 'Fwok/Word/Syllabler/Spanish.php';

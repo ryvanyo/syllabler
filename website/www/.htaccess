@@ -5,8 +5,8 @@ AddCharset UTF-8 .php
 RewriteEngine On
 RewriteBase /
 #Canonicals urls redirect from www to no-www
-RewriteCond %{HTTP_HOST} !^syllabler.fwok.org$ [NC]
-RewriteRule ^(.*)$ http://syllabler.fwok.org/$1 [R=301,L]
+#RewriteCond %{HTTP_HOST} !^syllabler.fwok.org$ [NC]
+#RewriteRule ^(.*)$ http://syllabler.fwok.org/$1 [R=301,L]
 RewriteCond %{REQUEST_URI} ^/json.*
 RewriteRule ^json/(.*) /?word=$1&json=1
 RewriteCond %{REQUEST_FILENAME} !-f
