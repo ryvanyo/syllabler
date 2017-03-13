@@ -17,7 +17,7 @@ $word = '';
 //Getting word information if it was passed in the request
 if(isset($_GET['word'])) {
 	
-	$word = utf8_decode($_GET['word']);
+	$word = utf8_decode(utf8_encode($_GET['word']));
     
     //Example configuration
     Fwok_Word_Syllabler_Spanish::setSpain(true);
