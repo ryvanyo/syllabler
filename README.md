@@ -10,6 +10,12 @@ In the TODO
 
 > http://syllabler.fwok.org/camión
 
+# Deploy
+
+To deploy you need to keep almost the same structure or change the set_include_path on `website/www/index.php`.
+
+Anyway it should run normally if you deploy the app from the [github](https://github.com/gtrabanco/PHP-Syllabler) with the consideration that you should change `apache.htaccess` or `nginx.htaccess` to `.htaccess`.
+
 
 # Known Issues
 The support for hypen words must be added externally and process separately, it is not added.

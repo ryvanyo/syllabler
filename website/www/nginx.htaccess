@@ -1,0 +1,14 @@
+# nginx configuration
+charset utf-8;
+
+location / {
+    if ($request_uri ~ "^/json.*") {
+
+        rewrite ^/json/(.*) /?word=$1&json=1;
+    }
+
+    if (!-e $request_filename){
+
+        rewrite ^/(.*) /?word=$1&json=0;
+    }
+}
