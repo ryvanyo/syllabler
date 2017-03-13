@@ -24,7 +24,7 @@ VOLUME /var/www/html
 WORKDIR /var/www/html
 
 COPY website/www .
-COPY apache.htaccess .htaccess
+COPY website/www/apache.htaccess .htaccess
 COPY website/templates ../templates
 COPY library ../library
 
