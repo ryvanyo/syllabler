@@ -8,9 +8,3 @@
  + Add the @var propety to the docblock
  + Improve the docblock comments with // style to PEAR
    style with /* */
- + Do the rigth documentation with phpdoc.org and
-   wiki in fwok site (doc.fwok.org)
- + Bug Tracker (bug.fwok.org) - This isn't for the library
-   but you may know that you could reports bug in
-   any place. By the moment send me to my email address:
-        gtrabanco@fwok.org
