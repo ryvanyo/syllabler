@@ -442,8 +442,8 @@ class Fwok_Word_Syllabler_Spanish extends Fwok_Word_Syllabler_Abstract
 
 		//First the exception of tl. This only for advise the user.
 		if($letters === 'tl') {
-			echo "Tiene tl pero: $tl " . $letters. "\n";
-			var_export($tl);
+			//echo "Tiene tl pero: $tl " . $letters. "\n";
+			//var_export($tl);
 			$this->_hasTl = true;
 		}
 		
