@@ -98,7 +98,7 @@ class Fwok_Word_Syllabler_Spanish extends Fwok_Word_Syllabler_Abstract
 	 * @return void
 	 */
 	public static function setTl($bool) {
-		self::$_spain = $bool;
+		self::$_tl = $bool;
 	}
 
 
@@ -493,7 +493,7 @@ class Fwok_Word_Syllabler_Spanish extends Fwok_Word_Syllabler_Abstract
 		}
 
 
-		if($spain and  $word === 'truhán') {
+		if($spain and  $word === 'truhan') {
 			//Truhán
 			$switch = true; //For don't begin the loop
 			$divisions = array(0, 3, 6);

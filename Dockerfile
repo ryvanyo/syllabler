@@ -1,9 +1,6 @@
 FROM php:5.6-apache
 MAINTAINER Gabriel Trabanco Llano <gtrabanco@fwok.org>
 
-ENV SYLLABLER_VERSION 0.1.1
-
-
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
 # Copied from wordpress Dockerfile:
