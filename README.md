@@ -38,3 +38,5 @@ https://es.wikipedia.org/wiki/Fonolog%C3%ADa_del_espa%C3%B1ol
 
 ## Similar projects
 http://www.aucel.com/pln/transbase.html - (See the source code in perl)
+
+http://www.texnia.com/spanish_hyphen.html - Divisions in syllables for multiple syllables with latex
