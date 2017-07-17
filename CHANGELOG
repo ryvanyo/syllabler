@@ -5,3 +5,5 @@
 21-07-2015
  + Added json option to the website (http://syllabler.fwok.org/json/camión)
  - Removed some old code that isn't necessary.
+18-07-2017
+ + Some bug fixes over all in webpage
