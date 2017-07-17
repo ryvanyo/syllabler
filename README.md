@@ -2,7 +2,7 @@
 A PHP library to split Spanish words in syllables through the algorithm.
 
 # Pending Works
-In the TODO
+In the [TODO](./TODO)
 
 # Demo
 
@@ -18,7 +18,7 @@ Anyway it should run normally if you deploy the app from the [github](https://gi
 
 
 # Known Issues
-The support for hypen words must be added externally and process separately, it is not added.
+The support for hypen words must be added externally and process separately, it is not added. They should be considered two words.
 
 The prefixes can make issues by the moment.
 
@@ -26,7 +26,7 @@ In spite of the algorithm supports it, it is not implemented the support for "tl
 
 You must use utf8_decode before pass the word to the object, this is because the library convert the word to utf8 and recodification to utf8 must give problems.
 
-**Don't keep together dipthongs with "H" in the middle, like "prohibición".**
+**Doesn't keep the "H" with it in the middle in some diphtongs, like "prohibición" and it should.**
 
 ----
 ## More relative information (in Spanish):
