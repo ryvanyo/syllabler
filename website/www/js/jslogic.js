@@ -6,6 +6,9 @@
 "use strict";
 
 //URL to get the json data of the word
+// it should be https in order to respect
+// CSP if you're under https connection with
+// CSP configuration. Added this comment to check Docker update this
 var url = 'https://syllabler.fwok.org/?json=1&word=';
 
 //Get the ajax Object
