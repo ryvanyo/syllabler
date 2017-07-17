@@ -28,7 +28,7 @@ var ajax = function() {
     }
 
     return xmlhttp;
-};
+}();
 
 
 //Function to show the result after ask for a word
