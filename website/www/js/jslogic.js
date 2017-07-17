@@ -94,9 +94,9 @@ window.addEventListener("load", function() {
         //Ajax
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4 && ajax.status == 200) {
-                seeResult(ajax.responseText);
+                showResult(ajax.responseText);
             }
-        }
+        };
 
         //Onclick
         btn.addEventListener("click", function () {
