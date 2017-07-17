@@ -6,7 +6,7 @@
 "use strict";
 
 //URL to get the json data of the word
-var url = 'http://syllabler.fwok.org/?json=1&word=';
+var url = 'https://syllabler.fwok.org/?json=1&word=';
 
 //Get the ajax Object
 var ajax = function() {
